@@ -16,18 +16,18 @@ public class CameraController : MonoBehaviour
     startPosition = transform.position;
     offset = transform.position - character.transform.position;
   }
-  public void Reset()
-  {
-    transform.position = startPosition;
-  }
-
+  //public void Reset()
+  //{
+  //  transform.position = startPosition;
+  //}
+  
   // updates after all the other updates
   void LateUpdate()
   {
 
     if (character.position.x - transform.position.x > 0)
     {
-      // Moves the camera with Mario (does not move in the Y-Axis) sets a height of 7 for the camera
+      // Moves the camera with Mario (does not move in the Y-Axis)
       Vector3 targetCamPos = new Vector3(character.position.x + offset.x, transform.position.y, transform.position.z);
       transform.position = targetCamPos;
     }

@@ -1,46 +1,95 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using System;
 
 public class Player : MonoBehaviour
 {
-  public float speed;
-  private Rigidbody2D rb2d;
-  bool grounded;
-  public float jumpSpeed;
+  //public float speed;
   public CameraController cameraController;
-
+  private Rigidbody2D rb2d;
+  public Transform deathZone;
+  public float jumpSpeed;
+  public float Walk;
+  public float Jump;
+  bool grounded;
+  private bool isJumping = false;
+  private bool isGrounded = true;
+  private float degreesToCollision;
+  private Vector2 spawn;
+  private object Collision2DCollider;
+  private object collision;
   void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
   }
 
-  void OnCollisionEnter2D(Collision2D other)
+  internal void Reset()
   {
-    if (other.transform.tag == "Ground")
+    transform.position = new Vector3(-10f, -3f, 0f);
+  }
+
+  public void Update()
+  {
+    if (isGrounded)
+    {
+      isJumping = false;
+    }
+  }
+
+  void Die()
+  {
+    transform.position = new Vector3(-10f, -3f, 0f);
+    //cameraController.Reset();
+    Debug.Log("you died");
+  }
+
+  private void OnCollisionEnter2D(Collision2D c)
+  {
+    if (c.transform.tag == "Ground")
     {
       grounded = true;
     }
   }
-  void Die()
+
+  void FixedUpdate()
   {
-    transform.position = new Vector3(0f, 1.5f, 0f);
-    cameraController.Reset();
-    Debug.Log("you died");
-  }
+    //float moveHorizontal = Input.GetAxis("Horizontal");
+    //float moveVertical = Input.GetAxis("Vertical");
 
-    void FixedUpdate()
-  {
-    float moveHorizontal = Input.GetAxis("Horizontal");
-    float moveVertical = Input.GetAxis("Vertical");
+    //Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+    //rb2d.AddForce(movement * speed);
 
-    Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-    rb2d.AddForce(movement * speed);
 
-    if (grounded)
+    if (Input.GetKey(KeyCode.A))
     {
-      if (Input.GetKey(KeyCode.Space))
+      transform.Translate(Vector3.left * Walk);
+    }
+    else if (Input.GetKey(KeyCode.D))
+    {
+      transform.Translate(-Vector3.left * Walk);
+    }
+    if (Input.GetKey(KeyCode.W))
+    {
+      if (!isJumping)
       {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
-        grounded = false;
+        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+        rb2d.AddForce(new Vector2(0, jumpSpeed * 100));
+        isJumping = true;
+      }
+
+      if (grounded)
+      {
+        if (Input.GetKey(KeyCode.Space))
+        {
+          GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+          grounded = false;
+          if (Vector2.Dot(transform.position - deathZone.position, deathZone.up) < -4)
+          {
+            Debug.Log("you died");
+            Die();
+          }
+        }
       }
     }
   }
