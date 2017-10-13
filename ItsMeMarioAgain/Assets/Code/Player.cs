@@ -69,28 +69,16 @@ public class Player : MonoBehaviour
     {
       transform.Translate(-Vector3.left * Walk);
     }
-    if (Input.GetKey(KeyCode.W))
+    if (Input.GetKey(KeyCode.Space))
     {
-      if (!isJumping)
-      {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-        rb2d.AddForce(new Vector2(0, jumpSpeed * 100));
-        isJumping = true;
-      }
-
       if (grounded)
-      {
-        if (Input.GetKey(KeyCode.Space))
+
+        if (!isJumping)
         {
-          GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
-          grounded = false;
-          if (Vector2.Dot(transform.position - deathZone.position, deathZone.up) < -4)
-          {
-            Debug.Log("you died");
-            Die();
-          }
+          rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+          rb2d.AddForce(new Vector2(0, jumpSpeed * 100));
+          isJumping = true;
         }
-      }
     }
   }
 }
