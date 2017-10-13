@@ -16,11 +16,11 @@ public class CameraController : MonoBehaviour
     startPosition = transform.position;
     offset = transform.position - character.transform.position;
   }
-  //public void Reset()
-  //{
-  //  transform.position = startPosition;
-  //}
-  
+  public void Reset()
+  {
+    transform.position = new Vector3(-10f, -3f, 0f);
+  }
+
   // updates after all the other updates
   void LateUpdate()
   {

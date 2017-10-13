@@ -69,10 +69,11 @@ public class Player : MonoBehaviour
     {
       transform.Translate(-Vector3.left * Walk);
     }
+
     if (Input.GetKey(KeyCode.Space))
     {
-      if (grounded)
-
+      if (isGrounded)
+   
         if (!isJumping)
         {
           rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
