@@ -40,7 +40,6 @@ public class UI : MonoBehaviour
       time -= Time.deltaTime;
       timeText.text = string.Format("Time:\r\n{0:000}", time);
     }
-
   }
 
   public void Reset()
@@ -58,7 +57,6 @@ public class UI : MonoBehaviour
     timeIsRunning = true;
   }
 
-
   public void GameOver()
   {
     Reset();
@@ -71,7 +69,6 @@ public class UI : MonoBehaviour
     Debug.Log("het werkt");
   }
 
-
   public void AddCoin()
   {
     coins++;
@@ -82,9 +79,7 @@ public class UI : MonoBehaviour
       coins = 0;
     }
     coinText.text = string.Format("Coins:\r\n{0:00}", coins);
-
   }
-
 
   public void ChangeWorld(int world, int level)
   {
@@ -92,14 +87,11 @@ public class UI : MonoBehaviour
     worldText.text = UI.world;
   }
 
-
-
   public void AddLife(int amount)
   {
     lives += amount;
     livesText.text = string.Format("Mario x {0}", lives);
   }
-
 
   public void SetTime(float time)
   {

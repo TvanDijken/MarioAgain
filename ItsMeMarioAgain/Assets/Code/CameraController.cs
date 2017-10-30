@@ -5,10 +5,9 @@ public class CameraController : MonoBehaviour
 {
   public Transform character;
   public Player player;
+
   private Vector3 offset;
   private Vector3 startPosition;
-
-  //todo Reset camera when the player dies
 
   // Use this for initialization
   void Start()
@@ -18,17 +17,17 @@ public class CameraController : MonoBehaviour
   }
   public void Reset()
   {
-    transform.position = new Vector3(-10f, -3f, 0f);
+    // Resets the camera to its start position
+    transform.position = startPosition;
   }
 
-  // updates after all the other updates
+  // Updates after all the other updates
   void LateUpdate()
   {
-
-    if (character.position.x - transform.position.x > 0)
+    if (character.position.x - transform.position.x > -3)
     {
-      // Moves the camera with Mario (does not move in the Y-Axis)
-      Vector3 targetCamPos = new Vector3(character.position.x + offset.x, transform.position.y, transform.position.z);
+      // Moves the camera with Mario (does not move in the Y-Axis) sets a height of 7 for the camera
+      Vector3 targetCamPos = new Vector3(character.position.x + offset.x, -2, character.position.z + offset.z);
       transform.position = targetCamPos;
     }
   }

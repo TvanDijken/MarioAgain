@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 815463226074e7e4e9ecac01b9d81d5b
-timeCreated: 1505733475
+timeCreated: 1508240886
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: 20626_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -76,7 +77,20 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 20626_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 80
+        width: 2626
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

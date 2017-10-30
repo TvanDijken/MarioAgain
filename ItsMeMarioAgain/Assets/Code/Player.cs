@@ -12,16 +12,27 @@ public class Player : MonoBehaviour
   public float jumpSpeed;
   public float Walk;
   public float Jump;
-  bool grounded;
   private bool isJumping = false;
   private bool isGrounded = true;
-  private float degreesToCollision;
-  private Vector2 spawn;
-  private object Collision2DCollider;
-  private object collision;
+  private SpriteRenderer spriteRenderer;
+  public Sprite BroemFiets;
+  public Player player;
+
   void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
+  }
+
+  public void Start()
+  {
+    spriteRenderer = GetComponent<SpriteRenderer>();
+  }
+
+  public void Die()
+  {
+    player.Reset();
+    cameraController.Reset();
+    Debug.Log("you died");
   }
 
   internal void Reset()
@@ -37,22 +48,12 @@ public class Player : MonoBehaviour
     }
   }
 
-  void Die()
+  void ChangeLayer()
   {
-    transform.position = new Vector3(-10f, -3f, 0f);
-    //cameraController.Reset();
-    Debug.Log("you died");
+    spriteRenderer.sprite = BroemFiets;
   }
 
-  private void OnCollisionEnter2D(Collision2D c)
-  {
-    if (c.transform.tag == "Ground")
-    {
-      grounded = true;
-    }
-  }
-
-  void FixedUpdate()
+  public void FixedUpdate()
   {
     //float moveHorizontal = Input.GetAxis("Horizontal");
     //float moveVertical = Input.GetAxis("Vertical");
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour
     if (Input.GetKey(KeyCode.Space))
     {
       if (isGrounded)
-   
+
         if (!isJumping)
         {
           rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
