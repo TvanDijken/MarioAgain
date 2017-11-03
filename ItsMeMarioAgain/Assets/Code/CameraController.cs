@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
   public Player player;
 
   private Vector3 offset;
-  private Vector3 startPosition;
+  public Vector3 startPosition;
 
   // Use this for initialization
   void Start()
@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
   public void Reset()
   {
     // Resets the camera to its start position
-    transform.position = startPosition;
+    transform.position = new Vector3(0, 0, 0);
   }
 
   // Updates after all the other updates

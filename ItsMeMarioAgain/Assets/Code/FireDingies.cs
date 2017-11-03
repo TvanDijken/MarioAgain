@@ -10,13 +10,23 @@ public class FireDingies : MonoBehaviour
   public Sprite fireStage2;
   public Sprite fireStage3;
   public Sprite fireStage4;
+  public Player player;
+  public GameObject FireTube1;
+  public GameObject FireTube3;
+  public GameObject FireTube2;
+
 
   void Start()
   {
     spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
-  private void OnTriggerStay2D(Collider2D collision)
+  public void OnCollisionEnter2D(Collision2D collision)
+  {
+    player.Reset();
+  }
+
+  private void OnTriggerEnter2D(Collider2D collision)
   {
     ChangeLayer();
   }
@@ -27,6 +37,5 @@ public class FireDingies : MonoBehaviour
     spriteRenderer.sprite = fireStage2;
     spriteRenderer.sprite = fireStage3;
     spriteRenderer.sprite = fireStage4;
-
   }
 }

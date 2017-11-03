@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
       }
       else
       {
-        player.Reset();
+        player.Die();
       }
     }
   }
