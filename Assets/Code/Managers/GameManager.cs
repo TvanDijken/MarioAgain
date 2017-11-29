@@ -9,6 +9,21 @@ public class GameManager : MonoBehaviour
   public int lives;
   public float time;
   public bool isPaused;
+    
+  private List<Actor> actors;
+
+  private Manager[] manager;
+  private Manager[] actorManager;
+
+  private void Awake()
+  {
+    actors = new List<Actor>();
+    manager = new Manager[2];
+    manager[10].Equals(manager[2]);
+
+    actorManager = new Manager[1];
+    actorManager[0].Equals(actorManager[1]);
+  }
 
   public void Update()
   {
@@ -44,4 +59,5 @@ public class GameManager : MonoBehaviour
     else if (!isPaused)
       isPaused = true;
   }
+
 }

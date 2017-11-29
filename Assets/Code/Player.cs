@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using System;
 
 public class Player : MonoBehaviour
 {
@@ -14,9 +11,8 @@ public class Player : MonoBehaviour
   public float Jump;
   private bool isJumping = false;
   private bool isGrounded = true;
-  private SpriteRenderer spriteRenderer;
-  public Sprite BroemFiets;
   public Player player;
+  public float speed;
 
   void Awake()
   {
@@ -25,7 +21,6 @@ public class Player : MonoBehaviour
 
   public void Start()
   {
-    spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
   public void Die()
@@ -37,7 +32,7 @@ public class Player : MonoBehaviour
 
   internal void Reset()
   {
-    transform.position = new Vector3(-20f, -1f, 3f);
+    transform.position = new Vector3(-30f, -2.5f, 3f);
   }
 
   public void Update()
@@ -48,28 +43,22 @@ public class Player : MonoBehaviour
     }
   }
 
-  void ChangeLayer()
-  {
-    spriteRenderer.sprite = BroemFiets;
-  }
-
   public void FixedUpdate()
   {
-    //float moveHorizontal = Input.GetAxis("Horizontal");
-    //float moveVertical = Input.GetAxis("Vertical");
+    float moveHorizontal = Input.GetAxis("Horizontal");
+    float moveVertical = Input.GetAxis("Vertical");
 
-    //Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-    //rb2d.AddForce(movement * speed);
+    Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+    rb2d.AddForce(movement * speed);
 
-
-    if (Input.GetKey(KeyCode.A))
-    {
-      transform.Translate(Vector3.left * Walk);
-    }
-    else if (Input.GetKey(KeyCode.D))
-    {
-      transform.Translate(-Vector3.left * Walk);
-    }
+    //if (Input.GetKey(KeyCode.A))
+    //{
+    //  transform.Translate(Vector3.left * Walk);
+    //}
+    //else if (Input.GetKey(KeyCode.D))
+    //{
+    //  transform.Translate(-Vector3.left * Walk);
+    //}
 
     if (Input.GetKey(KeyCode.Space))
     {
