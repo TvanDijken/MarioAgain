@@ -87,12 +87,12 @@
     <Compile Include="Assets\Code\CoinBlocks.cs" />
     <Compile Include="Assets\Code\Enemy.cs" />
     <Compile Include="Assets\Code\FireDingies.cs" />
+    <Compile Include="Assets\Code\Manager.cs" />
     <Compile Include="Assets\Code\Managers\GameManager.cs" />
     <Compile Include="Assets\Code\PauseMenu.cs" />
     <Compile Include="Assets\Code\Player.cs" />
     <Compile Include="Assets\Code\Teleports.cs" />
     <Compile Include="Assets\Code\UI.cs" />
-    <Compile Include="Assets\Code\Manager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

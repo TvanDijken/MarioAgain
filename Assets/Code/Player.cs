@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
   private bool isJumping = false;
   private bool isGrounded = true;
   public Player player;
-  public float speed;
+  public float speed; 
 
   void Awake()
   {
@@ -45,20 +45,20 @@ public class Player : MonoBehaviour
 
   public void FixedUpdate()
   {
-    float moveHorizontal = Input.GetAxis("Horizontal");
-    float moveVertical = Input.GetAxis("Vertical");
+    //float moveHorizontal = Input.GetAxis("Horizontal");
+    //float moveVertical = Input.GetAxis("Vertical");
 
-    Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-    rb2d.AddForce(movement * speed);
+    //Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+    //rb2d.AddForce(movement * speed);
 
-    //if (Input.GetKey(KeyCode.A))
-    //{
-    //  transform.Translate(Vector3.left * Walk);
-    //}
-    //else if (Input.GetKey(KeyCode.D))
-    //{
-    //  transform.Translate(-Vector3.left * Walk);
-    //}
+    if (Input.GetKey(KeyCode.A))
+    {
+      transform.Translate(Vector3.left * Walk);
+    }
+    else if (Input.GetKey(KeyCode.D))
+    {
+      transform.Translate(-Vector3.left * Walk);
+    }
 
     if (Input.GetKey(KeyCode.Space))
     {
