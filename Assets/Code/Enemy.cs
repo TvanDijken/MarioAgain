@@ -5,14 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   public Player player;
-  // Use this for initialization
-  void Start()
-  {
-    //if (player == null)
-    //  player = GameObject.FindWithTag("Player").GetComponent<Player>();
-  }
 
-  // Update is called once per frame
   void Update()
   {
     ///enemy can move left
@@ -33,7 +26,7 @@ public class Enemy : MonoBehaviour
       }
       else
       {
-        player.Die();
+        player.Die(); 
       }
     }
   }

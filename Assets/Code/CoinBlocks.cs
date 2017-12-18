@@ -5,8 +5,6 @@ using UnityEngine;
 public class CoinBlocks : MonoBehaviour
 {
   [SerializeField]
-  private GameObject powerUp;
-  [SerializeField]
   public int spawnAmount = 1;
   public int currentSpawnAmount;
   public int maxCoins = 5;
@@ -32,27 +30,20 @@ public class CoinBlocks : MonoBehaviour
         {
           inter.AddCoin();
           inter.AddScore(100);
-          Debug.Log("Added a coin?!!!");
+          Debug.Log("Added a coin");
           coinsSpent++;
           ChangeLayer();
         }
         Debug.Log("Player hit us");
         break;
     }
-
-    if (collision.gameObject.layer == 8 && currentSpawnAmount < spawnAmount)
-    {
-      Instantiate(powerUp, transform.position, Quaternion.identity);
-      currentSpawnAmount++;
-    }
-
   }
 
  public void ChangeLayer()
   {
     ///change layer for collision
     gameObject.layer = moveToLayer;
-    Debug.Log("coin block empty");
+    Debug.Log("Coin block empty");
     ///change sprite
     spriteRenderer.sprite = emptyBlockSprite;
   }

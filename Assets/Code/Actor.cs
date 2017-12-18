@@ -6,7 +6,7 @@ public class Actor : MonoBehaviour
 {
   protected float degreesToCollision;
 
-  void Awake()
+  public void Awake()
   {
     degreesToCollision = 30;
   }

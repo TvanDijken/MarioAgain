@@ -16,13 +16,6 @@ public class CameraController : MonoBehaviour
     offset = transform.position - character.transform.position;
   }
 
-  public void Reset()
-  {
-    // Resets the camera to its start position
-    transform.position = new Vector3(-30, -3, 3);
-  }
-
-  // Updates after all the other updates
   void LateUpdate()
   {
     if (character.position.x - transform.position.x > -3)
@@ -32,4 +25,12 @@ public class CameraController : MonoBehaviour
       transform.position = targetCamPos;
     }
   }
+
+  public void Reset()
+  {
+    // Resets the camera to its start position
+    transform.position = new Vector3(-30, -3, 3);
+  }
+
+  // Updates after all the other updates
 }
