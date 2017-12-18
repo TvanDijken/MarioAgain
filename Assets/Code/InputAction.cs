@@ -1,4 +1,4 @@
-﻿namespace Assets.Code
+﻿namespace GameInput
 {
   public enum InputAction
   {

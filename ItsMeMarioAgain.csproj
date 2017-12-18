@@ -226,9 +226,10 @@
     <Compile Include="Assets\Code\BossController.cs" />
     <Compile Include="Assets\Code\CameraController.cs" />
     <Compile Include="Assets\Code\CoinBlocks.cs" />
-    <Compile Include="Assets\Code\ControllerScheme.cs" />
+    <Compile Include="Assets\Code\ControlScheme.cs" />
     <Compile Include="Assets\Code\Enemy.cs" />
     <Compile Include="Assets\Code\FireDingies.cs" />
+    <Compile Include="Assets\Code\GameInput.cs" />
     <Compile Include="Assets\Code\InputAction.cs" />
     <Compile Include="Assets\Code\InputBinding.cs" />
     <Compile Include="Assets\Code\InputManager.cs" />

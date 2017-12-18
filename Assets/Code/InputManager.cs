@@ -1,23 +1,37 @@
-﻿using System.Collections;
+﻿using GameInput;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class InputManager : Manager
 {
-  // Use this for initialization
-  void Start()
-  {
+  private static ControlScheme[] controlSchemes;
 
+  public InputManager()
+  {
+    ControlScheme player1 = new ControlScheme();
+    ControlScheme player2 = new ControlScheme();
+
+    Dictionary<InputAction, KeyCode> keys = new Dictionary<InputAction, KeyCode>()
+    {
+      { InputAction.MoveLeft, KeyCode.A },
+      { InputAction.MoveRight, KeyCode.D },
+      { InputAction.MoveUp, KeyCode.W },
+      { InputAction.MoveDown, KeyCode.LeftControl },
+      { InputAction.Shoot, KeyCode.E },
+    };
+
+    player1.SetKeys(keys);
+
+    controlSchemes = new ControlScheme[2]
+    {
+      player1,
+      player2,
+    };
   }
 
-  // Update is called once per frame
-  void Update()
+  public override void Awake()
   {
-
-  }
-
-  public void Awake()
-  {
-
+    base.Awake();
   }
 }
