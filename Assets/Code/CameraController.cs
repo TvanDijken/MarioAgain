@@ -31,6 +31,4 @@ public class CameraController : MonoBehaviour
     // Resets the camera to its start position
     transform.position = new Vector3(-30, -3, 3);
   }
-
-  // Updates after all the other updates
 }

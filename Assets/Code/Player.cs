@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Actor
 {
   public CameraController cameraController;
   private Rigidbody2D rb2d;
@@ -16,7 +16,9 @@ public class Player : MonoBehaviour
   {
     rb2d = GetComponent<Rigidbody2D>();
   }
-
+  /// <summary>
+  /// checks if the player is grounded and allowes jumping.
+  /// </summary>
   public void Update()
   {
     if (isGrounded)
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour
 
   public void FixedUpdate()
   {
-
+    //lets the player move left, right and jump.
     if (Input.GetKey(KeyCode.A))
     {
       transform.Translate(Vector3.left * Walk);
@@ -49,16 +51,14 @@ public class Player : MonoBehaviour
         }
     }
   }
-
+  /// <summary>
+  /// reset the camera and player to its start position and reset any collectiblels and enemies.
+  /// </summary>
   public void Die()
   {
     player.Reset();
     cameraController.Reset();
-    Debug.Log("you died");
-  }
-
-  private void OnCollisionEnter2D(Collision2D collision)
-  {
+    Debug.Log("joe ded BOII!!!!!");
   }
 
   internal void Reset()

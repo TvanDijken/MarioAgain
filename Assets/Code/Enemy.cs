@@ -8,10 +8,13 @@ public class Enemy : MonoBehaviour
 
   void Update()
   {
-    ///enemy can move left
+    ///enemy moves left
     transform.Translate(Vector2.left * Time.deltaTime);
   }
 
+  /// <summary>
+  /// the enemy can kill the player by hitting him and can be killed when the player hits the top of the enemy collider and makes the player respawn ones killed by this enemy.
+  /// </summary>
   private void OnCollisionEnter2D(Collision2D c)
   {
     Vector2 upVector = transform.up;

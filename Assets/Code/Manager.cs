@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Manager
+public class Manager : MonoBehaviour
 {
   public virtual void Awake()
   {

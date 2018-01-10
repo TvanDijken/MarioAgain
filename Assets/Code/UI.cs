@@ -99,6 +99,9 @@ public class UI : MonoBehaviour
     timeText.text = string.Format("Time:\r\n{0:000}", time);
   }
 
+  /// <summary>
+  /// sets the standerd text for the canvas to display on the start of the game.
+  /// </summary>
   private void ShowInterface()
   {
     scoreText.text = string.Format("Score:\r\n{0:000000}", UI.score);

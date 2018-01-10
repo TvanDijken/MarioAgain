@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,22 +24,22 @@ public class GameManager : MonoBehaviour
     actorManager[0].Equals(actorManager[1]);
   }
 
-  public void Update()
-  {
-    time -= Time.deltaTime;
+  //public void Update()
+  //{
+  //  time -= Time.deltaTime;
 
-    if (time <= 0)
-    {
-      GameOver();
+  //  if (time <= 0)
+  //  {
+  //    GameOver();
 
-      LoadLevel(0);
-    }
-  }
+  //    LoadLevel(0);
+  //  }
+  //}
 
-  public void LoadLevel(int level)
-  {
-    SceneManager.LoadScene(level);
-  }
+  //public void LoadLevel(int level)
+  //{
+  //  SceneManager.LoadScene(level);
+  //}
 
   public void GameOver()
   {
@@ -52,12 +51,11 @@ public class GameManager : MonoBehaviour
 
   }
 
-  public void Pause()
-  {
-    if (isPaused)
-      isPaused = false;
-    else if (!isPaused)
-      isPaused = true;
-  }
-
+  //public void Pause()
+  //{
+  //  if (isPaused)
+  //    isPaused = false;
+  //  else if (!isPaused)
+  //    isPaused = true;
+  //}
 }
