@@ -282,20 +282,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\ActerManager.cs" />
     <Compile Include="Assets\Code\Actor.cs" />
-    <Compile Include="Assets\Code\BossController.cs" />
-    <Compile Include="Assets\Code\CameraController.cs" />
     <Compile Include="Assets\Code\CoinBlocks.cs" />
+    <Compile Include="Assets\Code\Controllers\BossController.cs" />
+    <Compile Include="Assets\Code\Controllers\CameraController.cs" />
     <Compile Include="Assets\Code\ControlScheme.cs" />
     <Compile Include="Assets\Code\Enemy.cs" />
     <Compile Include="Assets\Code\FireDingies.cs" />
-    <Compile Include="Assets\Code\GameInput.cs" />
-    <Compile Include="Assets\Code\InputAction.cs" />
-    <Compile Include="Assets\Code\InputBinding.cs" />
-    <Compile Include="Assets\Code\InputManager.cs" />
-    <Compile Include="Assets\Code\Manager.cs" />
+    <Compile Include="Assets\Code\Input\GameInput.cs" />
+    <Compile Include="Assets\Code\Input\InputAction.cs" />
+    <Compile Include="Assets\Code\Input\InputBinding.cs" />
+    <Compile Include="Assets\Code\Managers\ActerManager.cs" />
     <Compile Include="Assets\Code\Managers\GameManager.cs" />
+    <Compile Include="Assets\Code\Managers\InputManager.cs" />
+    <Compile Include="Assets\Code\Managers\Manager.cs" />
     <Compile Include="Assets\Code\PauseMenu.cs" />
     <Compile Include="Assets\Code\Player.cs" />
     <Compile Include="Assets\Code\Teleports.cs" />

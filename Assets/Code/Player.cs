@@ -12,7 +12,7 @@ public class Player : Actor
   public Player player;
   public GameObject powerUp;
 
-  void Awake()
+ public new void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
   }
