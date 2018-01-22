@@ -29,6 +29,6 @@ public class CameraController : MonoBehaviour
   public void Reset()
   {
     // Resets the camera to its start position
-    transform.position = new Vector3(-30, -3, 3);
+    transform.position = new Vector3(-30, -2.96f, 3);
   }
 }

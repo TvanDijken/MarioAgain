@@ -11,11 +11,21 @@ public class Player : Actor
   private bool isGrounded = true;
   public Player player;
   public GameObject powerUp;
+  private SpriteRenderer SpriteRenderer;
+  private int moveToLayer = 13;
+  public Sprite StealthySprite;
+  public BoxCollider2D bc2d;
 
- public new void Awake()
+  public new void Awake()
   {
     rb2d = GetComponent<Rigidbody2D>();
   }
+
+  private void Start()
+  {
+    SpriteRenderer = GetComponent<SpriteRenderer>();
+  }
+
   /// <summary>
   /// checks if the player is grounded and allowes jumping.
   /// </summary>
@@ -43,17 +53,19 @@ public class Player : Actor
     {
       if (isGrounded)
 
-        if (!isJumping)
+        if (!isJumping) 
         {
           rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
           rb2d.AddForce(new Vector2(0, JumpSpeed * 100));
           isJumping = true;
         }
     }
+    if (Input.GetKey(KeyCode.F))
+    {
+      ChangeLayer();
+    }
   }
-  /// <summary>
-  /// reset the camera and player to its start position and reset any collectiblels and enemies.
-  /// </summary>
+  // reset the camera and player to its start position and reset any collectiblels and enemies.
   public void Die()
   {
     player.Reset();
@@ -64,5 +76,17 @@ public class Player : Actor
   internal void Reset()
   {
     transform.position = new Vector3(-30f, -2.5f, 3f);
+  }
+
+  public void ChangeLayer()
+  {   
+      ///change layer for collision
+      gameObject.layer = moveToLayer;
+      Debug.Log("StelfModeAktiveeted");
+    ///change sprite
+    SpriteRenderer.sprite = StealthySprite; 
+    SpriteRenderer.color = new Color(1, 1, 1, 1f);
+
+    bc2d.size = new Vector3(0.72f, 0.47f, 1);
   }
 }
