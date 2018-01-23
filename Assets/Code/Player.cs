@@ -26,9 +26,7 @@ public class Player : Actor
     SpriteRenderer = GetComponent<SpriteRenderer>();
   }
 
-  /// <summary>
   /// checks if the player is grounded and allowes jumping.
-  /// </summary>
   public void Update()
   {
     if (isGrounded)
@@ -60,6 +58,7 @@ public class Player : Actor
           isJumping = true;
         }
     }
+   
     if (Input.GetKey(KeyCode.F))
     {
       ChangeLayer();
@@ -69,13 +68,14 @@ public class Player : Actor
   public void Die()
   {
     player.Reset();
-    cameraController.Reset();
+    cameraController.CamReset();
     Debug.Log("joe ded BOII!!!!!");
   }
 
   internal void Reset()
   {
     transform.position = new Vector3(-30f, -2.5f, 3f);
+    cameraController.Reset();
   }
 
   public void ChangeLayer()

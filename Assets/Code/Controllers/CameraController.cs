@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraController : MonoBehaviour
+public class CameraController : Player
 {
   public Transform character;
-  public Player player;
 
   private Vector3 offset;
   public Vector3 startPosition;
@@ -26,7 +25,7 @@ public class CameraController : MonoBehaviour
     }
   }
 
-  public void Reset()
+  internal void CamReset()
   {
     // Resets the camera to its start position
     transform.position = new Vector3(-30, -2.96f, 3);
